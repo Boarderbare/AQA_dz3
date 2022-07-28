@@ -3,10 +3,11 @@ package ru.netology.web;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.openqa.selenium.WrapsElement;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+
 
 
 public class FormTestOnSelenide {
@@ -19,6 +20,7 @@ public class FormTestOnSelenide {
     void shouldSubmitRequest() {
 
         SelenideElement form = $(".form");
+        form.$("[data-test-id=name] input").setValue("Василий Белов-Задунайский");
         form.$("[data-test-id=name] input").setValue("Василий Белов-Задунайский");
         form.$("[data-test-id=phone] input").setValue("+79270000000");
         form.$("[data-test-id=agreement]").click();
